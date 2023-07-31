@@ -1,6 +1,8 @@
 variables:
   DOCKER_IMAGE_NAME: sholalexandra/simplechatapp
   DOCKER_IMAGE_TAG: $CI_COMMIT_SHORT_SHA
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_TLS_CERTDIR: "/certs"
 
 stages:
   - build
@@ -8,6 +10,7 @@ stages:
 
 build_image:
   stage: build
+  image: docker:latest
   services:
     - docker:dind
   before_script:
@@ -18,6 +21,7 @@ build_image:
 
 deploy_container:
   stage: deploy
+  image: docker:latest
   services:
     - docker:dind
   before_script:
