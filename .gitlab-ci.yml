@@ -27,4 +27,4 @@ deploy_container:
     - docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_TOKEN"
   script:
     - docker pull $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
-    - docker run -d --name simplechatapp_container -p 3000:3000 $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
+    - docker run --name simplechatapp_container -p 3000:3000 $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
