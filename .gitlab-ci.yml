@@ -30,4 +30,4 @@ deploy_container:
     - docker run -d --name simplechatapp_container -p 3000:3000 $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
     - docker stop simplechatapp_container
     - docker ps -a -q --filter "name=simplechatapp_container" | xargs docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
-    - docker run --name simplechatapp_container -p 3000:3000 $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
+    - docker start simplechatapp_container
