@@ -8,6 +8,8 @@ stages:
 
 build_image:
   stage: build
+  services:
+    - docker:dind
   before_script:
     - docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_TOKEN"
   script:
@@ -16,6 +18,8 @@ build_image:
 
 deploy_container:
   stage: deploy
+  services:
+    - docker:dind
   before_script:
     - docker login -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_TOKEN"
   script:
