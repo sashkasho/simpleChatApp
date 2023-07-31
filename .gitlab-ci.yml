@@ -30,4 +30,4 @@ deploy_container:
     - docker run --name simplechatapp_container -p 3000:3000 $DOCKER_IMAGE_NAME:$DOCKER_IMAGE_TAG
     - docker ps -q --filter "name=simplechatapp_container" | xargs docker inspect --format='{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'
     - echo "Your application is running at:"
-    - echo "IP Address: $IP_ADDRESS"
+    - echo $IP_ADDRESS
